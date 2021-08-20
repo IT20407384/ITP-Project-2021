@@ -1,7 +1,7 @@
 //implement bussiness logic here
 //CRUD functionalities
 
-//import student model
+//import customer model
 const Customer = require('../models/customer.model');
 
 //add customer
@@ -18,6 +18,7 @@ const addCustomer = (req, res) => {
     const {cusName, pnum, age, vehicle} = req.body;
 
     //create a object
+
     const newCustomer = new Customer({
         cusName,
         pnum,
