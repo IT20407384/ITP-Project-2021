@@ -36,3 +36,136 @@
     transform: rotate(360deg);
   }
 }
+
+/* Header Style */
+
+.Header_Border {
+  padding-left: 25px;
+  background-image: url(images/header_background.jpg);
+  background-position-x: 1700px;
+  background-position-y: 950px;
+}
+
+.center_1 {
+  padding-top: 100px;
+}
+
+.center_2 {
+  padding-bottom: 100px;
+}
+
+.vehiTypeBtnSet {
+  height: 550px;
+  display: flex;
+  align-items: center;
+}
+
+.BtnVehiType {
+  width: 300px;
+  height: 460px;
+  border-radius: 10px;
+  border-width: 1px;
+  margin-left: 18px;
+  position: relative;
+}
+
+.car::before {
+  content: '';
+  background-image: url(./images/carTypeBtn.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+.car:hover {
+  background-color: #282c34;
+}
+
+.bike::before {
+  content: '';
+  background-image: url(./images/bikeTypeBtn.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+.bike:hover {
+  background-color: #282c34;
+}
+
+.wheel::before {
+  content: '';
+  background-image: url(./images/wheelTypeBtn.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+.wheel:hover {
+  background-color: #282c34;
+}
+
+.other::before {
+  content: '';
+  background-image: url(./images/otherTypeBtn.jpg);
+  background-size: cover;
+  background-position-x: -75px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+.other:hover {
+  background-color: #282c34;
+}
+
+.btnText {
+  position: relative;
+  color: black;
+  font-weight: bold;
+  width: 300px;
+  height: 460px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.btnText:hover {
+  color: white;
+}
+
+.bike {
+}
+
+.threeWheel {
+}
+
+.other {
+}
+
+/* Footer Style */
+
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(235, 195, 64);
+  position: fixed;
+  bottom: 0;
+  left: 1;
+  right: 1;
+  width: 67.5%;
+}
