@@ -7,6 +7,7 @@ import AddCustomer from "./components/addCustomer";
 import Navbar from "./components/navBar";
 import Header from "./components/header";
 import M_VehiTypeBtns from "./components/maintenance_vehicle_type";
+import Tabs from "./components/tabs";
 import Footer from "./components/footer";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
       <div className="container">
         <Header />
         <Navbar />
-        <M_VehiTypeBtns />
+        <Route path="/home" component={M_VehiTypeBtns} />
+        <Route path="/type/:id" exact component={Tabs} />
         <Footer />
       </div>
     </Router>
