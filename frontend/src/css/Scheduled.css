@@ -1,0 +1,13 @@
+.scheduledTable {
+  margin-top: 25px;
+}
+
+.btnTD {
+  text-align: center;
+}
+
+.options {
+  background-color: rgb(76, 122, 221);
+  border: rgb(76, 122, 221);
+  color: white;
+}

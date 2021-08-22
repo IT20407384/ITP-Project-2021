@@ -1,12 +1,21 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import "../css/Tabs.css";
+import ScheduleTable from "./ScheduledTable";
 
 function Tabs() {
+  // Tabs selection
   const [toggleState, setToggleState] = useState(1);
 
-  const toggleTab = (index) => {
+  const toggleTab = index => {
     setToggleState(index);
   };
+  // Tabs selection closed
+
+  // Vehicle type selection
+  const { id } = useParams();
+
+  // Vehicle type selection close
 
   return (
     <div className="data">
@@ -14,21 +23,18 @@ function Tabs() {
         <div className="bloc-tabs">
           <button
             className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(1)}
-          >
-            Tab 1
+            onClick={() => toggleTab(1)}>
+            SCHEDULED
           </button>
           <button
             className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(2)}
-          >
-            Tab 2
+            onClick={() => toggleTab(2)}>
+            CREATED PLANS
           </button>
           <button
             className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(3)}
-          >
-            Tab 3
+            onClick={() => toggleTab(3)}>
+            NEW PLAN
           </button>
         </div>
 
@@ -36,45 +42,27 @@ function Tabs() {
           <div
             className={
               toggleState === 1 ? "content  active-content" : "content"
-            }
-          >
-            <h2>Content 1</h2>
+            }>
+            <h2>Arrived Schedules</h2>
+            <h5>Vehicle Type :- {id}</h5>
             <hr />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-              praesentium incidunt quia aspernatur quasi quidem facilis quo
-              nihil vel voluptatum?
-            </p>
+            <ScheduleTable />
           </div>
 
           <div
             className={
               toggleState === 2 ? "content  active-content" : "content"
-            }
-          >
+            }>
             <h2>Content 2</h2>
             <hr />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              voluptatum qui adipisci.
-            </p>
           </div>
 
           <div
             className={
               toggleState === 3 ? "content  active-content" : "content"
-            }
-          >
+            }>
             <h2>Content 3</h2>
             <hr />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-              nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-              Accusamus in quia odit aspernatur provident et ad vel distinctio
-              recusandae totam quidem repudiandae omnis veritatis nostrum
-              laboriosam architecto optio rem, dignissimos voluptatum beatae
-              aperiam voluptatem atque. Beatae rerum dolores sunt.
-            </p>
           </div>
         </div>
       </div>
