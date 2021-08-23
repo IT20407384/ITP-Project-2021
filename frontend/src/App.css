@@ -36,3 +36,102 @@
     transform: rotate(360deg);
   }
 }
+
+/* Employee List styles */
+
+.view {
+  background-color: rgb(156, 154, 154);
+  width: 100px;
+  border: none;
+}
+.view:focus {
+  background-color: rgb(68, 66, 66);
+}
+.view:hover {
+  background-color: rgb(68, 66, 66);
+}
+.edit {
+  background-color: rgb(55, 55, 252);
+  margin-left: 25px;
+  width: 100px;
+}
+.edit:focus {
+  background-color: darkblue;
+}
+.edit:hover {
+  background-color: darkblue;
+}
+.delete {
+  background-color: rgb(204, 5, 5);
+  margin-left: 25px;
+  width: 100px;
+  border: darkred;
+}
+.delete:focus {
+  background-color: darkred;
+}
+.delete:hover {
+  background-color: darkred;
+}
+.table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid black;
+}
+.addEmp {
+  width: 20%;
+  height: 50px;
+  background-color: rgb(5, 124, 5);
+}
+.addEmp:focus {
+  background-color: darkgreen;
+}
+.addEmp:hover {
+  background-color: darkgreen;
+}
+.tableStyle {
+  text-align: center;
+}
+/* HR_Management_View style */
+
+.empID {
+  margin-left: 40px;
+  width: 350px;
+}
+.InputControl {
+  margin-top: 10px;
+}
+.payroll {
+  float: right;
+  width: 50%;
+  margin-top: -70px;
+  text-align: right;
+}
+.table {
+  width: 70%;
+  border: 1px solid black;
+  float: right;
+  text-align: left;
+  margin-right: 60px;
+}
+.table td {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.AssignTask {
+  margin-top: 100px;
+}
+.atList {
+  height: 150px;
+}
+.atdiv {
+  width: 600px;
+}
+.srdiv {
+  width: 600px;
+  float: right;
+  margin-top: -209px;
+}
