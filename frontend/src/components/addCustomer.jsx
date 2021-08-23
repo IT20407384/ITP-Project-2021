@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 
-//create a class and extend Component which is inside the react library
+//create a className and extend Component which is inside the react library
 class AddCustomer extends React.Component {
     
-    //create a class with given properties(can use all other classes)
+    //create a className with given properties(can use all other classes)
     constructor(props) {
         super(props);
 
@@ -78,47 +78,47 @@ class AddCustomer extends React.Component {
                 <br></br>
                 <h3>Add Customer</h3>
 
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Enter Your Name :</label>
+                <div className="mb-3">
+                    <label for="formGroupExampleInput" className="form-label">Enter Your Name :</label>
                     <input type="text"
-                        class="form-control"
+                        className="form-control"
                         id="formGroupExampleInput" 
                         placeholder="John Doe"
                         value={this.state.name}
                         onChange={this.setCustomerName}>
                     </input>
                 </div>
-                <div class="mb-3">
-                    <label for="formGroupExampleInput2" class="form-label">Enter Your Mobile Number :</label>
+                <div className="mb-3">
+                    <label for="formGroupExampleInput2" className="form-label">Enter Your Mobile Number :</label>
                     <input type="text"
-                        class="form-control"
+                        className="form-control"
                         id="formGroupExampleInput2"
                         placeholder="0123456789"
                         value={this.state.phone}
                         onChange={this.setCustomerPhone}>
                     </input>
                 </div>
-                <div class="mb-3">
-                    <label for="formGroupExampleInput3" class="form-label">Enter Your Vehicle ID :</label>
+                <div className="mb-3">
+                    <label for="formGroupExampleInput3" className="form-label">Enter Your Vehicle ID :</label>
                     <input type="text"
-                        class="form-control"
+                        className="form-control"
                         id="formGroupExampleInput3" 
                         placeholder="XYZ1234"
                         value={this.state.vehicle}
                         onChange={this.setCustomerVehicle}>
                     </input>
                 </div>
-                <div class="mb-3">
-                    <label for="formGroupExampleInput4" class="form-label">Enter Your Age :</label>
+                <div className="mb-3">
+                    <label for="formGroupExampleInput4" className="form-label">Enter Your Age :</label>
                     <input type="text"
-                        class="form-control"
+                        className="form-control"
                         id="formGroupExampleInput4"
                         placeholder="32"
                         value={this.state.age}
                         onChange={this.setCustomerAge}>
                     </input><br></br><br></br>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-primary" type="button" onClick={this.saveCustomerData}>Save Customer</button>
+                    <div className="d-grid gap-2 col-6 mx-auto">
+                        <button className="btn btn-primary" type="button" onClick={this.saveCustomerData}>Save Customer</button>
                     </div>
                 </div>
             </div>
