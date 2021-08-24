@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Scheduled.css";
+import "./Scheduled.css";
 import { Table, Button } from "react-bootstrap";
 
 export default function ScheduledTable() {

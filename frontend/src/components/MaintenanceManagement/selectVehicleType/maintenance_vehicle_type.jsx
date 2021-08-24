@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./select_vehicle.css";
 
 function M_vehicle_type(props) {
   return (

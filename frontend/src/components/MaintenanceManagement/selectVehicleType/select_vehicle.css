@@ -1,0 +1,104 @@
+.vehiTypeBtnSet {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: inline-block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.BtnVehiType {
+  width: 400px;
+  height: 650px;
+  border-radius: 10px;
+  border-width: 1px;
+  margin-left: 18px;
+  position: relative;
+}
+
+.car::before {
+  content: '';
+  background-image: url(../images/carTypeBtn.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.car:hover {
+  background-color: #282c34;
+}
+
+.bike::before {
+  content: '';
+  background-image: url(../images/bikeTypeBtn.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.bike:hover {
+  background-color: #282c34;
+}
+
+.wheel::before {
+  content: '';
+  background-image: url(../images/wheelTypeBtn.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.wheel:hover {
+  background-color: #282c34;
+}
+
+.other::before {
+  content: '';
+  background-image: url(../images/otherTypeBtn.jpg);
+  background-size: cover;
+  background-position-x: -75px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.other:hover {
+  background-color: #282c34;
+}
+
+.btnText {
+  position: relative;
+  color: black;
+  height: 640px;
+  width: 400px;
+  font-weight: bold;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.btnText:hover {
+  color: white;
+}
