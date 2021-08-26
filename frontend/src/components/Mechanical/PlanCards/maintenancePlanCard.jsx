@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./planCard.css";
+import "./flipCard.css";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 export default function PlanCard(props) {
+  //get vehicle type from url
+  const { id } = useParams();
+  const url = "/editPlan/" + id;
+
   return (
-    <div className="cardWrapper">
+    <div>
       <div className="container">
         <h3 className="cardTitle">Engine TuneUP</h3>
         <hr className="cardHR" />
@@ -42,7 +49,7 @@ export default function PlanCard(props) {
           <br></br>
           <label className="quoteDetails dis">Discount</label>
           <input
-            className="billInputs"
+            className="billInputs dis"
             type="text"
             disabled
             defaultValue="1000.00"
@@ -57,7 +64,9 @@ export default function PlanCard(props) {
           />
         </div>
         <div className="cardBtnControl">
-          <Button className="btnEdit">EDIT</Button>
+          <Link to={url}>
+            <Button className="btnEdit">EDIT</Button>
+          </Link>
           <Button className="btnDelete">DELETE</Button>
         </div>
       </div>

@@ -3,6 +3,8 @@ import { Tabs } from "react-bootstrap";
 import "./Tabs.css";
 import PlanCard from "../PlanCards/maintenancePlanCard";
 import ScheduleTable from "../ScheduleTable/ScheduledTable";
+import newPlan from "../addNewMaintenancePlans/newPlan";
+import CardFliper from "../PlanCards/cardFlipper";
 
 export default function Tab() {
   // Vehicle type selection
@@ -12,30 +14,39 @@ export default function Tab() {
   return (
     <div className="data">
       <Tabs
-        defaultActiveKey="home"
+        defaultActiveKey="scheduled"
         id="uncontrolled-tab-example"
         className="mb-3"
       >
-        <Tab eventKey="home" title="SCHEDULED">
+        <Tab eventKey="scheduled" title="SCHEDULED">
           <h2>Arrived Schedules</h2>
           <h5>Vehicle Type :- {id}</h5>
           <hr />
           <ScheduleTable />
         </Tab>
-        <Tab eventKey="profile" title="CREATED PLANS">
+        <Tab eventKey="createdPlans" title="CREATED PLANS">
           <h2>Created Plans</h2>
           <h5>Vehicle Type :- {id}</h5>
           <hr />
           <div className="cardLinner">
-            <PlanCard />
-            <PlanCard />
-            <PlanCard />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
+            <CardFliper />
           </div>
         </Tab>
-        <Tab eventKey="contact" title="NEW PLAN">
+        <Tab eventKey="addPlans" title="NEW PLAN">
           <h2>Create a New Plan</h2>
           <h5>Vehicle Type :- {id}</h5>
           <hr />
+          {newPlan()}
         </Tab>
       </Tabs>
     </div>

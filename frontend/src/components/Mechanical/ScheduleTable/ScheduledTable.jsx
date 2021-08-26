@@ -2,7 +2,7 @@ import React from "react";
 import "./Scheduled.css";
 import { Table, Button } from "react-bootstrap";
 
-export default function ScheduledTable() {
+export default function ScheduledTable(props) {
   return (
     <div>
       <Table className="scheduledTable" striped bordered hover variant="dark">

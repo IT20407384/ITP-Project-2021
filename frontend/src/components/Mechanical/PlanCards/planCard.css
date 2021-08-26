@@ -1,19 +1,8 @@
 .cardLinner {
-  margin-bottom: 50px;
+  width: 100%;
   text-align: center;
-}
-
-.cardWrapper {
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #b4b4b456;
-  border-radius: 15px;
-  width: 400px;
-  min-height: 600px;
   display: inline-block;
-  margin-top: 30px;
-  margin-right: 10px;
-  background-color: rgba(249, 255, 225, 0.815);
+  height: 880px;
 }
 
 .cardTitle {
@@ -79,6 +68,7 @@
   background-color: rgba(222, 231, 186, 0.815);
   border-radius: 10px;
   margin-top: 5px;
+  padding-bottom: 5px;
 }
 
 .QuotateLabel {
@@ -136,4 +126,10 @@
 
 .btnDelete:focus {
   background-color: rgb(172, 0, 0);
+}
+
+.description {
+  padding: 0 !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
