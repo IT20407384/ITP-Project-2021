@@ -5,12 +5,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CustomerList from './components/customerList';
 import AddCustomer from './components/addCustomer';
 import Navbar from './components/navBar';
+import Registersupplier from './components/registersupplier';
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Navbar/>
+        <Registersupplier/>
         <AddCustomer/><br></br>
         <CustomerList/>
       </div>
