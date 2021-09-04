@@ -18,11 +18,11 @@ mongoose.connect('mongodb+srv://sliit_itp:qwerty12345@cluster0.a61gp.mongodb.net
  });
 
 
-//http://localhost:3001/api/Customer
+//http://localhost:3001/api/Service
 //if someone give above url it will point to the below 2nd parameter(routes file)
-const routes = require('./routes/customer.routes');
-app.use("/api/Customer", routes);
 
+const routes = require('./routes/service.routes');
+app.use("/Service", routes);
 
 //this is useful when hosting the app.
 //this will assign given port number by server if not assigned 5000
