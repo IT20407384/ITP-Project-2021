@@ -1,7 +1,7 @@
-const express = require('express');
-const mongoose  = require('mongoose');
-const cors = require('cors');
-require ('dotenv').config();
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -9,27 +9,30 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 //stablish mongodb connection by this method
 //as 1st parameter we have to pass our mongodb link
-mongoose.connect('mongodb+srv://sliit_itp:qwerty12345@cluster0.a61gp.mongodb.net/mydatabase?retryWrites=true&w=majority', 
-    {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
-     console.log("Mongo DB Connected");
- });
-
+mongoose
+  .connect(
+    "mongodb+srv://sliit_itp:qwerty12345@cluster0.a61gp.mongodb.net/mydatabase?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
+  .then(() => {
+    console.log("Mongo DB Connected");
+  });
 
 //http://localhost:3001/api/Customer
 //if someone give above url it will point to the below 2nd parameter(routes file)
-const routes = require('./routes/customer.routes');
+const routes = require("./routes/customer.routes");
+const mechanical_routes = require("./routes/Mechanical/mechanicalMaintenance.routes");
 app.use("/api/Customer", routes);
-
+app.use("/api/maintenance", mechanical_routes);
 
 //this is useful when hosting the app.
 //this will assign given port number by server if not assigned 5000
-const PORT = process.env.PORT || 3001 ;
+const PORT = process.env.PORT || 3001;
 
 //pass that as 1st param
 //2nd para is a function, it displays msg in console if server goo
-app.listen(PORT, ()=>{
-    console.log("Server is Running")
+app.listen(PORT, () => {
+  console.log("Server is Running");
 });

@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./planCard.css";
 import "./flipCard.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 
 export default function PlanCard(props) {
   //get vehicle type from url
   const { id } = useParams();
   const url = "/editPlan/" + id;
+
+  // Get details to card from database
+  const [details, setDetails] = useState([]);
+
+  useEffect(() => {
+    function getDetails() {
+      axios.get("http://localhost:3001/api/maintenance/all").then(res => {
+        console.log(res.data);
+      });
+    }
+    getDetails();
+  });
 
   return (
     <div>

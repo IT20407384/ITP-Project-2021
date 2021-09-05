@@ -38,7 +38,6 @@ export default function EditPlan(props) {
             </div>
             <div className="selectorCtrl">
               <Selector />
-              <input className="quantitySel" type="number" defaultValue="1" />
             </div>
             <br></br>
             <br></br>

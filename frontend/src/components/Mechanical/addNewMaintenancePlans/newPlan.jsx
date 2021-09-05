@@ -1,35 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Selector from "../partsSelector/partsSelector";
 import "./addNewPlan.css";
+import axios from "axios";
 
 export default function NewPlan(props) {
+  // generateplanID
+  const pID = "PID001";
+
+  // Get amounts from all selected spare-parts
+  const AMOUNT = "10000.00";
+
+  // Set states
+  const [planID] = useState(pID);
+  const [planName, setPtitle] = useState("");
+  const [planDescription, setPdescription] = useState("");
+  const [amount] = useState(AMOUNT);
+  const [discount, setdiscount] = useState(0);
+  const [total, settotal] = useState("");
+
+  // Calculation of total from Amount - Discount
+  function calcTot(disc) {
+    setdiscount(disc);
+    const tot = amount - disc;
+    settotal(tot);
+  }
+
+  const totChange = () => {
+    if (discount == 0) {
+      settotal(AMOUNT);
+    }
+  };
+
+  // get selected spare-parts
+  var [spareParts, setValue] = useState();
+
+  // Send data
+  function sendData(e) {
+    e.preventDefault();
+
+    const newPlanContent = {
+      planID,
+      planName,
+      spareParts,
+      planDescription,
+      amount,
+      discount,
+      total,
+    };
+
+    axios
+      .post("http://localhost:3001/api/maintenance/add", newPlanContent)
+      .then(() => {
+        alert("New Plan added");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    console.log(newPlanContent);
+  }
+
   return (
     <div className="newPlanContainer">
-      <form className="form-container">
+      <form className="form-container" onSubmit={sendData}>
         <div className="planDetails">
           <div className="planID idInForm">
             <label className="planIdLabel idLabel">Plan ID</label>
-            <input className="adding" defaultValue="PID001" disabled />
+            <input className="adding" defaultValue={planID} disabled />
           </div>
           <br></br>
           <br></br>
           <br></br>
           <div className="form-floating mb-3">
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="planTitle"
               placeholder="Plan title"
               required
+              onChange={e => {
+                setPtitle(e.target.value);
+              }}
             />
             <label for="planTitle" className="lab">
               Plan title
             </label>
           </div>
           <div className="selectorCtrl">
-            <Selector />
-            <input className="quantitySel" type="number" defaultValue="1" />
+            <Selector
+              getValue={e => {
+                setValue(e.map(x => x.id));
+              }}
+            />
           </div>
           <br></br>
           <br></br>
@@ -39,6 +102,9 @@ export default function NewPlan(props) {
               placeholder="Leave a comment here"
               id="floatingTextarea2"
               style={{ height: "200px" }}
+              onChange={e => {
+                setPdescription(e.target.value);
+              }}
             ></textarea>
             <label className="lab" for="floatingTextarea2">
               Description
@@ -55,21 +121,25 @@ export default function NewPlan(props) {
             <div className="allbillInputs">
               <input
                 className="inputBill"
-                type="number"
+                type="text"
                 min="0"
-                defaultValue="0.00"
+                defaultValue={AMOUNT}
                 disabled
               />
               <input
                 className="inputBill dis"
-                type="number"
+                type="text"
                 placeholder="0.00"
                 min="0"
+                onChange={e => {
+                  calcTot(e.target.value);
+                }}
               />
               <input
                 className="inputBill"
-                type="number"
-                defaultValue="0.00"
+                type="text"
+                defaultValue={total}
+                placeholder={AMOUNT}
                 disabled
               />
             </div>
@@ -79,7 +149,9 @@ export default function NewPlan(props) {
             <Button type="reset" className="btns">
               RESET
             </Button>
-            <Button className="btns create">CREATE</Button>
+            <Button type="submit" className="btns create" onClick={totChange}>
+              CREATE
+            </Button>
           </div>
         </div>
       </form>
