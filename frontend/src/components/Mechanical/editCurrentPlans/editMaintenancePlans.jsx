@@ -1,16 +1,18 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import Selector from "../partsSelector/partsSelector";
-import "./planEdit.css";
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+import Selector from '../partsSelector/partsSelector'
+import './planEdit.css'
+import axios from 'axios'
 
 export default function EditPlan(props) {
   // Vehicle type selection
-  const { id } = useParams();
-  const url = "/type/" + id;
+  const { id, planId } = useParams()
+  const url = '/type/' + id
+
   return (
-    <div className="data" style={{ marginTop: "40px", marginBottom: "40px" }}>
+    <div className="data" style={{ marginTop: '40px', marginBottom: '40px' }}>
       <h2>Edit Current Plan</h2>
       <h5>Vehicle Type :- {id}</h5>
       <hr />
@@ -19,7 +21,7 @@ export default function EditPlan(props) {
           <div className="planDetails">
             <div className="planID idInForm">
               <label className="planIdLabel idLabel">Plan ID</label>
-              <input className="adding" defaultValue="PID001" disabled />
+              <input className="adding" defaultValue={planId} disabled />
             </div>
             <br></br>
             <br></br>
@@ -46,7 +48,7 @@ export default function EditPlan(props) {
                 class="form-control ta"
                 placeholder="Leave a comment here"
                 id="floatingTextarea2"
-                style={{ height: "200px" }}
+                style={{ height: '200px' }}
               ></textarea>
               <label className="lab" for="floatingTextarea2">
                 Description
@@ -93,5 +95,5 @@ export default function EditPlan(props) {
         </form>
       </div>
     </div>
-  );
+  )
 }

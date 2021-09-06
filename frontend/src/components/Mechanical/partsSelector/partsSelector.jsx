@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Multiselect } from "multiselect-react-dropdown";
 import "./selector.css";
-import { getConstantValue } from "typescript";
 
 export default function Selector(props) {
   const data = [

@@ -1,27 +1,29 @@
-import PlanCard from "./maintenancePlanCard";
-import React, { useState } from "react";
-import "./planCard.css";
-import "./flipCard.css";
-import PlanCardBack from "./maintenancePlanCardBack";
+import PlanCard from './maintenancePlanCard'
+import React, { useState } from 'react'
+import './planCard.css'
+import './flipCard.css'
+import PlanCardBack from './maintenancePlanCardBack'
 
-export default function CardFliper() {
+export default function CardFliper({ details }) {
   //flip card
-  const [flip, setFlip] = useState(true);
+  const [flip, setFlip] = useState(true)
 
   function fliper() {
-    setFlip(!flip);
+    setFlip(!flip)
   }
 
-  let flipping = flip ? "cardWrapper1" : "cardWrapper2";
+  let flipping = flip ? 'cardWrapper1' : 'cardWrapper2'
+
+  //get Details
 
   return (
     <div onClick={fliper} className={flipping}>
       <div className="flip-card-front">
-        <PlanCard />
+        <PlanCard details={details} />
       </div>
       <div className="flip-card-back">
-        <PlanCardBack />
+        <PlanCardBack details={details} />
       </div>
     </div>
-  );
+  )
 }

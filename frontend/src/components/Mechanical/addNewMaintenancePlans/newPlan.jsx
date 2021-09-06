@@ -1,43 +1,61 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import Selector from "../partsSelector/partsSelector";
-import "./addNewPlan.css";
-import axios from "axios";
+import { useState, useEffect } from 'react'
+import { Button } from 'react-bootstrap'
+import Selector from '../partsSelector/partsSelector'
+import './addNewPlan.css'
+import axios from 'axios'
 
 export default function NewPlan(props) {
-  // generateplanID
-  const pID = "PID001";
+  // Get details to card from database
+  const [details, setDetails] = useState([])
+
+  useEffect(() => {
+    function getDetails() {
+      axios
+        .get('http://localhost:3001/api/maintenance/all')
+        .then((res) => {
+          setDetails(res.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+    getDetails()
+  }, [])
+
+  // generateplanID;
+  const len = details.length
+  const gen = len + 1
+  const planID = 'PID00' + gen
 
   // Get amounts from all selected spare-parts
-  const AMOUNT = "10000.00";
+  const AMOUNT = '10000.00'
 
   // Set states
-  const [planID] = useState(pID);
-  const [planName, setPtitle] = useState("");
-  const [planDescription, setPdescription] = useState("");
-  const [amount] = useState(AMOUNT);
-  const [discount, setdiscount] = useState(0);
-  const [total, settotal] = useState("");
+  const [planName, setPtitle] = useState('')
+  const [planDescription, setPdescription] = useState('')
+  const [amount] = useState(AMOUNT)
+  const [discount, setdiscount] = useState(0)
+  const [total, settotal] = useState('')
 
   // Calculation of total from Amount - Discount
   function calcTot(disc) {
-    setdiscount(disc);
-    const tot = amount - disc;
-    settotal(tot);
+    setdiscount(disc)
+    const tot = amount - disc
+    settotal(tot)
   }
 
   const totChange = () => {
     if (discount == 0) {
-      settotal(AMOUNT);
+      settotal(AMOUNT)
     }
-  };
+  }
 
   // get selected spare-parts
-  var [spareParts, setValue] = useState();
+  var [spareParts, setValue] = useState()
 
   // Send data
   function sendData(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     const newPlanContent = {
       planID,
@@ -47,18 +65,18 @@ export default function NewPlan(props) {
       amount,
       discount,
       total,
-    };
+    }
 
     axios
-      .post("http://localhost:3001/api/maintenance/add", newPlanContent)
+      .post('http://localhost:3001/api/maintenance/add', newPlanContent)
       .then(() => {
-        alert("New Plan added");
+        alert('New Plan added')
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch((err) => {
+        console.log(err)
+      })
 
-    console.log(newPlanContent);
+    console.log(newPlanContent)
   }
 
   return (
@@ -67,7 +85,7 @@ export default function NewPlan(props) {
         <div className="planDetails">
           <div className="planID idInForm">
             <label className="planIdLabel idLabel">Plan ID</label>
-            <input className="adding" defaultValue={planID} disabled />
+            <input className="adding" value={planID} disabled />
           </div>
           <br></br>
           <br></br>
@@ -79,8 +97,8 @@ export default function NewPlan(props) {
               id="planTitle"
               placeholder="Plan title"
               required
-              onChange={e => {
-                setPtitle(e.target.value);
+              onChange={(e) => {
+                setPtitle(e.target.value)
               }}
             />
             <label for="planTitle" className="lab">
@@ -89,8 +107,8 @@ export default function NewPlan(props) {
           </div>
           <div className="selectorCtrl">
             <Selector
-              getValue={e => {
-                setValue(e.map(x => x.id));
+              getValue={(e) => {
+                setValue(e.map((id) => id))
               }}
             />
           </div>
@@ -101,9 +119,9 @@ export default function NewPlan(props) {
               class="form-control ta"
               placeholder="Leave a comment here"
               id="floatingTextarea2"
-              style={{ height: "200px" }}
-              onChange={e => {
-                setPdescription(e.target.value);
+              style={{ height: '200px' }}
+              onChange={(e) => {
+                setPdescription(e.target.value)
               }}
             ></textarea>
             <label className="lab" for="floatingTextarea2">
@@ -131,8 +149,8 @@ export default function NewPlan(props) {
                 type="text"
                 placeholder="0.00"
                 min="0"
-                onChange={e => {
-                  calcTot(e.target.value);
+                onChange={(e) => {
+                  calcTot(e.target.value)
                 }}
               />
               <input
@@ -156,5 +174,5 @@ export default function NewPlan(props) {
         </div>
       </form>
     </div>
-  );
+  )
 }
